@@ -41,7 +41,7 @@ install_packages() {
 
 clone_dotfiles() {
     logo "Descargando Dotfiles"
-    local repo_url="TU_URL_DE_GITHUB_AQUI"
+    local repo_url="https://github.com/Vleizx/arch-dotfiles"
     local repo_dir="$HOME/dotfiles_temp"
 
     [ -d "$repo_dir" ] && rm -rf "$repo_dir"
