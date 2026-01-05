@@ -1,0 +1,30 @@
+# Neon Crimson Theme - Sangre eléctrica y neón carmesí
+
+# Colores principales
+[colors.primary]
+background = "#000000"       # vacío absoluto
+foreground = "#b4b9c8"       # rosa neón vibrante
+# Cursor colors
+[colors.cursor]
+cursor = "#ff0040"           # rojo neón pulsante
+text = "#000000"             # negrura que devora
+# Normal colors
+[colors.normal]
+black   = "#ff6b9d"          # tinieblas puras
+red     = "#d4af37"          # rojo neón eléctrico
+green   = "#c1001a"          # naranja rojizo neón
+yellow  = "#ff6600"          # naranja fuego neón
+blue    = "#ff0080"          # magenta neón brillante
+magenta = "#ff1493"          # rosa shocking neón
+cyan    = "#ff0040"          # rosa caliente neón
+white   = "#ff6b9d"          # rosa neón suave
+# Bright colors
+[colors.bright]
+black   = "#ff6b9d"          # gris rojizo profundo
+red     = "#ff1a40"          # rojo carmesí brillante
+green   = "#d2691e"          # naranja rojizo chocolate
+yellow  = "#ff4500"          # rojo-naranja intenso
+blue    = "#b22222"          # rojo ladrillo brillante
+magenta = "#dc143c"          # carmesí clásico
+cyan    = "#cd5c5c"          # rojo indio suave
+white   = "#ffc0cb"          # rosa claro cálido

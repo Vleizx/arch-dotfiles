@@ -1,0 +1,1 @@
+/home/vl/.local/share/pipx/venvs/impacket/bin/addcomputer.py

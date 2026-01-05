@@ -1,0 +1,12 @@
+* {
+    font: "Terminess Nerd Font Mono Bold 10";
+    background: #0a0000F0;
+    bg-alt: #ff0000;
+    background-alt: #0a0000E0;
+    foreground: #b80707;
+    selected: #c1001a;
+    active: #b8860b;
+    urgent: #ff0033;
+
+    img-background: url("~/.config/bspwm/rices/valerie/rofi.webp", width);
+}

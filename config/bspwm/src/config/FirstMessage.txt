@@ -1,0 +1,16 @@
+Hello, welcome to BSPWM
+
+Maybe it's your first time using a window manager or maybe not, here are some tips so you don't feel so lost.
+
+    - (Alt + F1) For a list of all keyboard shortcuts.
+    - (Super + Enter) Opens the terminal
+    - (Super + q) To close windows/apps.
+    - (Super + Space bar) Opens the apps menu
+    - (Alt + Space bar) Open the menu to change the theme
+    - (Super + arrows) Move between workspaces (there are *6)
+
+Remember that I tried to make the environment in a MINIMALIST way but giving you what you need to make it comfortable and efficient for your daily work. However, some of the features you can find are:
+
+Please check the menu of all keyboard shortcuts by pressing "Alt + F1" or directly by looking at the file ~/.config/bspwm/sxhkdrc from this file you can create your own keyboard shortcuts or modify the existing ones.
+
+Using a WM at first can be difficult and intimidating, but once you get used to it, you never go back to a DE.
