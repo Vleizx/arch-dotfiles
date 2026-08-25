@@ -1,0 +1,33 @@
+#!/bin/sh
+
+UPDATE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/Updates.txt"
+
+check_updates() {
+    updates=$(checkupdates 2>/dev/null || true)
+    total=0
+    [ -z "$updates" ] || total=$(printf '%s\n' "$updates" | wc -l)
+    printf '%s\n' "$total" > "$UPDATE_FILE"
+
+    if pgrep -x polybar >/dev/null 2>&1; then
+        polybar-msg action updates hook 0 >/dev/null 2>&1 || true
+    fi
+}
+
+list_updates() {
+    check_updates
+    if [ "$total" -gt 0 ]; then
+        printf '\033[1m\033[33mThere are %s official updates available:\033[0m\n\n' "$total"
+        printf '%s\n' "$updates" | sed 's/->/\x1b[32;1m>>\x1b[0m/g'
+    else
+        printf '\033[1m\033[32mYour system is already updated!\033[0m\n'
+    fi
+}
+
+case "${1:-}" in
+    --sync-polybar) check_updates ;;
+    --print-updates) list_updates ;;
+    *)
+        printf '%s\n' "Updates [--sync-polybar|--print-updates]" >&2
+        exit 1
+        ;;
+esac

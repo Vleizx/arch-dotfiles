@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill "$HOME/.config/bspwm/rices/valerie/walls/1358293.jpeg" 

@@ -1,0 +1,47 @@
+#!/bin/sh
+
+CONFIG_FILE="$HOME/.config/bspwm/config/system.ini"
+STATE_FILE="$HOME/.config/bspwm/config/.sys"
+
+[ -f "$STATE_FILE" ] && exit 0
+[ -f "$CONFIG_FILE" ] || exit 0
+
+network_interface=$(ip -o -4 route show default 2>/dev/null | awk 'NR == 1 {print $5}')
+if [ -z "$network_interface" ]; then
+    network_interface=$(ip -o link show up 2>/dev/null | awk -F': ' '$2 !~ /^lo:/ {print $2; exit}')
+fi
+
+backlight=''
+for entry in /sys/class/backlight/*; do
+    [ -d "$entry" ] || continue
+    backlight=$(basename "$entry")
+    break
+done
+
+battery=''
+for entry in /sys/class/power_supply/*; do
+    [ -d "$entry" ] || continue
+    case "$(basename "$entry")" in
+        BAT*) battery=$(basename "$entry"); break ;;
+    esac
+done
+
+adapter=''
+for entry in /sys/class/power_supply/*; do
+    [ -d "$entry" ] || continue
+    case "$(basename "$entry")" in
+        AC*|ADP*) adapter=$(basename "$entry"); break ;;
+    esac
+done
+
+tmp_file=$(mktemp)
+awk -v net="$network_interface" -v card="$backlight" \
+    -v bat="$battery" -v adap="$adapter" '
+    /^sys_network_interface[[:space:]]*=/ { print "sys_network_interface = " net; next }
+    /^sys_graphics_card[[:space:]]*=/ { print "sys_graphics_card = " card; next }
+    /^sys_battery[[:space:]]*=/ { print "sys_battery = " bat; next }
+    /^sys_adapter[[:space:]]*=/ { print "sys_adapter = " adap; next }
+    { print }
+' "$CONFIG_FILE" > "$tmp_file" && mv "$tmp_file" "$CONFIG_FILE"
+
+touch "$STATE_FILE"

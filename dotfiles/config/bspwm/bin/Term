@@ -1,0 +1,29 @@
+#!/bin/sh
+
+case "${1:-}" in
+    --selecterm|--terminal)
+        alacritty
+        ;;
+    --floating)
+        alacritty --class FloaTerm,FloaTerm
+        ;;
+    --update)
+        alacritty --hold --class FloaTerm,FloaTerm -e sudo pacman -Syu
+        ;;
+    --checkupdates)
+        alacritty --hold --class Updating,Updating -e Updates --print-updates
+        ;;
+    --yazi)
+        alacritty --class FloaTerm,YaziTerm -e yazi
+        ;;
+    --nvim)
+        alacritty -e nvim
+        ;;
+    --music)
+        alacritty --class FloaTerm,MusicTerm -e ncmpcpp
+        ;;
+    *)
+        printf '%s\n' "Usage: Term [--terminal|--floating|--update|--checkupdates|--yazi|--nvim|--music]" >&2
+        exit 1
+        ;;
+esac

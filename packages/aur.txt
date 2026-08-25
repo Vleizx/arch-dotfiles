@@ -1,0 +1,2 @@
+# Valerie is intentionally independent of AUR helpers and third-party
+# repositories. Non-official runtime assets are bundled in dotfiles/local.

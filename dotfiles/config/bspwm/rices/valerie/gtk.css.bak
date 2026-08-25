@@ -1,0 +1,42 @@
+/* Vleiz Theme - Sobreescritura Directa */
+
+/* 1. Cambiar el color Turquesa de la barra lateral y selección por Rojo Neón */
+selection, 
+row:selected, 
+node:selected,
+.selected {
+    background-color: #ff0040 !important;
+    color: #000000 !important;
+}
+
+/* 2. Forzar fondo negro puro en Thunar y otras ventanas */
+window, 
+grid, 
+stack, 
+viewport, 
+.view, 
+treeview {
+    background-color: #0a0000 !important;
+    color: #b80707 !important;
+}
+
+/* 3. Arreglar la barra lateral (donde dice "vl", "Desktop", etc) */
+.sidebar, 
+.sidebar row:selected {
+    background-color: #0a0000 !important;
+}
+
+/* 4. ELIMINAR EL ROSA/BLANCO DEL NETWORK MANAGER */
+entry, entry text {
+    background-color: #000000 !important;
+    color: #ff0040 !important;
+    border: 1px solid #ff0040 !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/* Botones del sistema */
+button.suggested-action {
+    background-color: #ff0040 !important;
+    border-color: #b80707 !important;
+}

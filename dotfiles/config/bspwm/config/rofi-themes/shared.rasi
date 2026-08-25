@@ -1,0 +1,10 @@
+* {
+    font: "Terminess Nerd Font Mono Bold 10";
+    background: #0a0000F0;
+    bg-alt: #ff0000;
+    background-alt: #0a0000E0;
+    foreground: #b80707;
+    selected: #ff0040f0;
+    active: #ff4500;
+    urgent: #ff0040;
+}
